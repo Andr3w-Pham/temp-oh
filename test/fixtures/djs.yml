@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  location: MyString
+  portfolio: MyString
+  rate: 9.99
+  image: MyString
+  dj_check: false
+  user: one
+
+two:
+  name: MyString
+  description: MyText
+  location: MyString
+  portfolio: MyString
+  rate: 9.99
+  image: MyString
+  dj_check: false
+  user: two
