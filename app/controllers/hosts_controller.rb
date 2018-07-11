@@ -25,6 +25,7 @@ class HostsController < ApplicationController
   # POST /hosts.json
   def create
     @host = Host.new(host_params)
+    @host.user_id = current_user.id
 
     respond_to do |format|
       if @host.save

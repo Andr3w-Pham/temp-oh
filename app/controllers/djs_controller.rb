@@ -25,6 +25,7 @@ class DjsController < ApplicationController
   # POST /djs.json
   def create
     @dj = Dj.new(dj_params)
+    @dj.user_id = current_user.id
 
     respond_to do |format|
       if @dj.save
