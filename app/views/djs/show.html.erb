@@ -27,18 +27,14 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @dj.image %>
+  <br><br>
+  <%= image_tag(@dj.image_url, width: "30%", height:"30%")%>
 </p>
 
 <p>
-  <strong>Dj check:</strong>
-  <%= @dj.dj_check %>
+  <% @dj.dj_check %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @dj.user %>
-</p>
 
 <%= link_to 'Edit', edit_dj_path(@dj) %> |
 <%= link_to 'Back', djs_path %>

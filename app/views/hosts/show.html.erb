@@ -12,13 +12,14 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @host.image %>
+  <br><br>
+  <%= image_tag(@host.image_url, width: "30%", height:"30%")%>
 </p>
 
-<p>
+<!-- <p>
   <strong>User:</strong>
   <%= @host.user %>
-</p>
+</p> -->
 
 <%= link_to 'Edit', edit_host_path(@host) %> |
 <%= link_to 'Back', hosts_path %>
