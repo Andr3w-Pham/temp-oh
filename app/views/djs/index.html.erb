@@ -28,9 +28,9 @@
         <!-- <td><%= dj.image %></td> -->
         <!-- <td><%= dj.dj_check %></td> -->
         <!-- <td><%= dj.user %></td> -->
-        <td><%= link_to 'Show', dj %></td>
-        <td><%= link_to 'Edit', edit_dj_path(dj) %></td>
-        <td><%= link_to 'Destroy', dj, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', dj, class:"btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', dj, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
