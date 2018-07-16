@@ -86,7 +86,8 @@ class DjsController < ApplicationController
 
     def only_edit_own_dj_page
       if @dj.user_id != current_user.id
-        redirect_to root_path, notice: "Sorry, but you are only allowed to make changes to your own profile"
+        flash[:notice] = "Sorry, but you are only allowed to make changes to your own profile"
+        redirect_to djs_path
       end
     end
 

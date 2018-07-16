@@ -86,7 +86,8 @@ class HostsController < ApplicationController
 
     def only_edit_own_host_page
       if @host.user_id != current_user.id
-        redirect_to root_path, notice: "Sorry, but you are only allowed to make changes to your own profile"
+        flash[:notice] = "Sorry, but you are only allowed to make changes to your own profile"
+        redirect_to hosts_path
       end
     end
 

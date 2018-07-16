@@ -9,10 +9,10 @@
         <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
       </li> -->
       <li class="nav-item dropdown">
-        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Dropdown  </a>
+        <a class="nav-link  dropdown-toggle" data-toggle="dropdown">  Browse </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#"> Menu item 1</a></li>
-          <li><a class="dropdown-item" href="#"> Menu item 2 </a></li>
+          <li><%= link_to 'Home', root_path,class:"dropdown-item" %></li>
+          <li><%= link_to 'DJ List', djs_path,class:"dropdown-item" %></li>
         </ul>
       </li>
       <li class="nav-item">
