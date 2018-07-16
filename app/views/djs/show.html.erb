@@ -1,13 +1,6 @@
-<div class="card mx-auto" style="width: 50rem;">
-  <div class="card-body">
-    <p id="notice"><%= notice %></p>
+<div id="dj-card" class="card mx-auto">
 
-    <p id="djimage">
-      <br><br>
-      <%= image_tag(@dj.image_url, width: "40%", height:"40%")%>
-    </p>
-
-    <p>
+  <!-- <p>
       <strong>Name:</strong>
       <%= @dj.name %>
     </p>
@@ -35,12 +28,23 @@
     <p>
       <strong>Rate:</strong>
       $<%= @dj.rate %> per hour
-    </p>
-
-
-
-    <%= link_to 'Edit', edit_dj_path(@dj) %>
-    <br><br>
-    <%= link_to 'Back', root_path %>
+    </p> -->
+  <img class="card-img-top">
+  <%= image_tag(@dj.image_url)%>
+  </img>
+  <div id="dj-card-body" class="card-body">
+    <h1 id="dj-card-header" class="card-header"><%= @dj.name %></h1>
+    <div id="dj-card-text" class="card-text">
+      <ul class="list-group list-group-flush">
+        <p id="notice"><%= notice %></p>
+        <li class="list-group-item">Email: <%= @dj.user.email %></li>
+        <li class="list-group-item">Description: <%= @dj.description %></li>
+        <li class="list-group-item">Location: <%= @dj.location %></li>
+        <li class="list-group-item">Portfolio: <%= @dj.portfolio %></li>
+        <li class="list-group-item">Rate: $<%= @dj.rate %> per hour</li>
+        <li class="list-group-item"><%= link_to 'Edit', edit_dj_path(@dj) %></li>
+        <li class="list-group-item"><%= link_to 'Back', djs_path %></li>
+      </ul>
+    </div>
   </div>
 </div>

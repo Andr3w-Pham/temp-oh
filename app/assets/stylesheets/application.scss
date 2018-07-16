@@ -1,14 +1,11 @@
 @import "bootstrap";
+
 a {
   color: #444;
 }
 
 a:hover {
   color: #222;
-}
-
-.card {
-  background-color: #b5b0ba;
 }
 
 #djimage {
@@ -21,10 +18,38 @@ a:hover {
   border-radius: 30px;
 }
 
-#dj-card-text {
+.card {
+  background-color: black;
+}
+
+#dj-card-body {
+  background-color: black;
   text-align: center;
+  margin-bottom: 10%;
+}
+
+#dj-card-header {
+  text-align: center;
+  color: white;
+  background-color: #142145;
 }
 
 #dj-card-title {
   text-align: center;
+}
+
+#host-card {
+  height: 300px;
+  width: 35%;
+}
+
+#dj-card {
+  height: 300px;
+  width: 50%;
+}
+
+#host-card-body {
+  background-color: black;
+  text-align: center;
+  margin-bottom: 10%;
 }
