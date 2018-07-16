@@ -1,7 +1,7 @@
 class HostsController < ApplicationController
   before_action :set_host, only: [:show, :edit, :update, :destroy]
-  before_action :dj_check, only: [:new, :create]
-  before_action :host_check, only: [:new, :create]
+  before_action :check_dj_presence, only: [:new, :create]
+  before_action :check_host_presence, only: [:new, :create]
   # GET /hosts
   # GET /hosts.json
   def index
@@ -69,12 +69,14 @@ class HostsController < ApplicationController
       @host = Host.find(params[:id])
     end
 
-    def dj_check
-    redirect_to root_path if current_user.dj
+    def check_dj_presence
+      flash[:notice] = "DJ profile found, user is not able to create host profile."
+      redirect_to root_path if current_user.dj
     end
 
-    def host_check
-    redirect_to root_path if current_user.host
+    def check_host_presence
+      flash[:notice] = "You already have a Host profile!"
+      redirect_to root_path if current_user.host
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

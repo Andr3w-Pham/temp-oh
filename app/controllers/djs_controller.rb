@@ -71,11 +71,13 @@ class DjsController < ApplicationController
     end
 
     def check_dj_presence
-    redirect_to root_path if current_user.dj
+      flash[:notice] = "You already have a DJ profile!"
+      redirect_to root_path if current_user.dj
     end
 
     def check_host_presence
-    redirect_to root_path if current_user.host
+      flash[:notice] = "Host profile found, user is not able to create dj profile."
+      redirect_to root_path if current_user.host
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
