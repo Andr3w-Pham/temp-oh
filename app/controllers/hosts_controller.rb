@@ -2,6 +2,7 @@ class HostsController < ApplicationController
   before_action :set_host, only: [:show, :edit, :update, :destroy]
   before_action :check_dj_presence, only: [:new, :create]
   before_action :check_host_presence, only: [:new, :create]
+  before_action :only_edit_own_host_page, only: [:edit, :update, :destroy]
   # GET /hosts
   # GET /hosts.json
   def index
@@ -70,13 +71,23 @@ class HostsController < ApplicationController
     end
 
     def check_dj_presence
-      flash[:notice] = "DJ profile found, user is not able to create host profile."
-      redirect_to root_path if current_user.dj
+      if current_user.dj
+        flash[:notice] = "DJ profile found, user is not able to create host profile."
+        redirect_to root_path
+      end
     end
 
     def check_host_presence
-      flash[:notice] = "You already have a Host profile!"
-      redirect_to root_path if current_user.host
+      if current_user.host
+        flash[:notice] = "You already have a Host profile!"
+        redirect_to root_path
+      end
+    end
+
+    def only_edit_own_host_page
+      if @host.user_id != current_user.id
+        redirect_to root_path, notice: "Sorry, but you are only allowed to make changes to your own profile"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

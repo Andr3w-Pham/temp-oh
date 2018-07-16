@@ -2,7 +2,7 @@ class DjsController < ApplicationController
   before_action :set_dj, only: [:show, :edit, :update, :destroy]
   before_action :check_dj_presence, only: [:new, :create]
   before_action :check_host_presence, only: [:new, :create]
-
+  before_action :only_edit_own_dj_page, only: [:edit, :update, :destroy]
   # GET /djs
   # GET /djs.json
   def index
@@ -71,14 +71,25 @@ class DjsController < ApplicationController
     end
 
     def check_dj_presence
-      flash[:notice] = "You already have a DJ profile!"
-      redirect_to root_path if current_user.dj
+      if current_user.dj
+        flash[:notice] = "You already have a DJ profile!"
+        redirect_to root_path
+      end
     end
 
     def check_host_presence
-      flash[:notice] = "Host profile found, user is not able to create dj profile."
-      redirect_to root_path if current_user.host
+      if current_user.host
+        flash[:notice] = "Host profile found, user is not able to create dj profile."
+        redirect_to root_path
+      end
     end
+
+    def only_edit_own_dj_page
+      if @dj.user_id != current_user.id
+        redirect_to root_path, notice: "Sorry, but you are only allowed to make changes to your own profile"
+      end
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dj_params
