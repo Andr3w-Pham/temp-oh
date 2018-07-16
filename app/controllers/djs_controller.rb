@@ -1,5 +1,7 @@
 class DjsController < ApplicationController
   before_action :set_dj, only: [:show, :edit, :update, :destroy]
+  before_action :check_dj_presence, only: [:new, :create]
+  before_action :check_host_presence, only: [:new, :create]
 
   # GET /djs
   # GET /djs.json
@@ -66,6 +68,14 @@ class DjsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dj
       @dj = Dj.find(params[:id])
+    end
+
+    def check_dj_presence
+    redirect_to root_path if current_user.dj
+    end
+
+    def check_host_presence
+    redirect_to root_path if current_user.host
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

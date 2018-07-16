@@ -1,6 +1,7 @@
 class HostsController < ApplicationController
   before_action :set_host, only: [:show, :edit, :update, :destroy]
-
+  before_action :dj_check, only: [:new, :create]
+  before_action :host_check, only: [:new, :create]
   # GET /hosts
   # GET /hosts.json
   def index
@@ -66,6 +67,14 @@ class HostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_host
       @host = Host.find(params[:id])
+    end
+
+    def dj_check
+    redirect_to root_path if current_user.dj
+    end
+
+    def host_check
+    redirect_to root_path if current_user.host
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

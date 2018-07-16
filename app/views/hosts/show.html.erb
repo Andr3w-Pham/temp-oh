@@ -1,25 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="card mx-auto" style="width: 18rem;">
+  <div class="card-body">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @host.name %>
-</p>
+    <p id="hostimage">
+      <%= image_tag(@host.image_url, width: "80%", height:"50%")%>
+    </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @host.location %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @host.name %>
+    </p>
 
-<p>
-  <strong>Image:</strong>
-  <br><br>
-  <%= image_tag(@host.image_url, width: "30%", height:"30%")%>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= current_user.email %>
+    </p>
 
-<!-- <p>
-  <strong>User:</strong>
-  <%= @host.user %>
-</p> -->
+    <p>
+      <strong>Location:</strong>
+      <%= @host.location %>
+    </p>
 
-<%= link_to 'Edit', edit_host_path(@host), class:"btn btn-primary" %> |
-<%= link_to 'Back', hosts_path, class:"btn btn-primary" %>
+
+    <!-- <p>
+      <strong>User:</strong>
+      <%= @host.user %>
+    </p> -->
+
+    <%= link_to 'Edit', edit_host_path(@host), class:"btn btn-primary" %> |
+    <%= link_to 'Back', hosts_path, class:"btn btn-primary" %>
+  </div>
+</div>

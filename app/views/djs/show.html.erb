@@ -1,40 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="card mx-auto" style="width: 50rem;">
+  <div class="card-body">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @dj.name %>
-</p>
+    <p id="djimage">
+      <br><br>
+      <%= image_tag(@dj.image_url, width: "40%", height:"40%")%>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @dj.description %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @dj.name %>
+    </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @dj.location %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= current_user.email %>
+    </p>
 
-<p>
-  <strong>Portfolio:</strong>
-  <%= @dj.portfolio %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @dj.description %>
+    </p>
 
-<p>
-  <strong>Rate:</strong>
-  <%= @dj.rate %>
-</p>
+    <p>
+      <strong>Location:</strong>
+      <%= @dj.location %>
+    </p>
 
-<p>
-  <strong>Image:</strong>
-  <br><br>
-  <%= image_tag(@dj.image_url, width: "30%", height:"30%")%>
-</p>
+    <p>
+      <strong>Portfolio:</strong>
+      <%= @dj.portfolio %>
+    </p>
 
-<p>
-  <% @dj.dj_check %>
-</p>
+    <p>
+      <strong>Rate:</strong>
+      $<%= @dj.rate %> per hour
+    </p>
 
 
-<%= link_to 'Edit', edit_dj_path(@dj) %> |
-<%= link_to 'Back', djs_path %>
+
+    <%= link_to 'Edit', edit_dj_path(@dj) %>
+    <br><br>
+    <%= link_to 'Back', root_path %>
+  </div>
+</div>
