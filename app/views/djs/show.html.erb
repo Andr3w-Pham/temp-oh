@@ -44,6 +44,7 @@
         <li class="list-group-item">Rate: $<%= @dj.rate %> per hour</li>
         <li class="list-group-item"><%= link_to 'Edit', edit_dj_path(@dj) %></li>
         <li class="list-group-item"><%= link_to 'Back', djs_path %></li>
+        <%= link_to 'Book', dj_bookings_path(@dj), method: :post %>
       </ul>
     </div>
   </div>

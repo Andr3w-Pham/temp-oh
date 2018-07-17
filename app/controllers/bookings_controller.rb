@@ -1,10 +1,12 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_dj, only: [:new, :create, :edit, :show, :update, :destroy]
 
   # GET /bookings
   # GET /bookings.json
   def index
     @bookings = Booking.all
+    @dj = Dj.find(params[:dj_id])
   end
 
   # GET /bookings/1
@@ -19,16 +21,22 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1/edit
   def edit
-  end
+    @dj = Dj.find(params[:dj_id])
+   end
 
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
+    logger.debug('2222222222222')
+    logger.debug(current_user.host)
+    @booking.host_id = current_user.host.id
+
+    @booking.dj_id = @dj.id
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.html { redirect_to dj_booking_path(@dj, @booking), notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
@@ -56,19 +64,26 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to dj_bookings_path, notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_booking
-      @booking = Booking.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def booking_params
-      params.require(:booking).permit(:host_id, :dj_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def set_dj
+    @dj = Dj.find(params[:dj_id])
+    logger.debug('1111111111')
+    logger.debug(@dj.id)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def booking_params
+    params.require(:booking).permit(:host_id, :dj_id)
+  end
 end
