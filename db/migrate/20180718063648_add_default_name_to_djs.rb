@@ -1,9 +1,10 @@
 class AddDefaultNameToDjs < ActiveRecord::Migration[5.2]
   def up
-    change_column :djs, :name, :string, :default => "andrew"
+    change_column :djs, :name, :string, :default => "test"
+
   end
 
   def down
-    change_column :djs, :name, :string, :default => "test"
+    change_column :djs, :name, :string, :default => "andrew"
   end
 end
