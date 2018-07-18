@@ -93,8 +93,6 @@ class BookingsController < ApplicationController
 
   def set_dj
     @dj = Dj.find(params[:dj_id])
-    logger.debug('1111111111')
-    logger.debug(@dj.id)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
