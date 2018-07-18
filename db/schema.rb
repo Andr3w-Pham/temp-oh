@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_014901) do
   end
 
   create_table "djs", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "test"
     t.text "description"
     t.string "location"
     t.string "portfolio"
