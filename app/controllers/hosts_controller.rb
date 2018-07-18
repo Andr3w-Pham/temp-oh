@@ -3,6 +3,7 @@ class HostsController < ApplicationController
   before_action :check_dj_presence, only: [:new, :create]
   before_action :check_host_presence, only: [:new, :create]
   before_action :only_edit_own_host_page, only: [:edit, :update, :destroy]
+
   # GET /hosts
   # GET /hosts.json
   def index
