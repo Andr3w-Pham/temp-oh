@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-   before_action :authenticate_user!, except: [:index, :show, :destroy]
+   before_action :authenticate_user!, except: [:index, :show]
 end

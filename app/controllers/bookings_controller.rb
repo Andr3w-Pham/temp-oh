@@ -1,12 +1,14 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :set_dj, only: [:new, :create, :edit, :show, :update, :destroy]
+  before_action :set_dj, only: [:new, :create, :edit, :show, :update, :destroy, :index]
+  before_action :check_host_presence, only: [:index, :show]
+  before_action :check_dj_presence, only: [:new, :create]
 
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
-    @dj = Dj.find(params[:dj_id])
+    # @bookings = Booking.all
+    @bookings = Booking.where("dj_id=?", params[:dj_id])
   end
 
   # GET /bookings/1
@@ -21,8 +23,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1/edit
   def edit
-    @dj = Dj.find(params[:dj_id])
-   end
+  end
 
   # POST /bookings
   # POST /bookings.json
@@ -74,6 +75,20 @@ class BookingsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def check_dj_presence
+    if current_user.dj
+      flash[:notice] = "DJ user detected, only hosts are able to make bookings"
+      redirect_to root_path
+    end
+  end
+
+  def check_host_presence
+    if current_user.host
+      flash[:notice] = "Booking was sent to DJ"
+      redirect_to root_path
+    end
   end
 
   def set_dj
