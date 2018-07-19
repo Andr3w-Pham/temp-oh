@@ -1,25 +1,38 @@
-<% @djs.each do |dj| %>
-  <div class="text-center">
-    <ul class="list-unstyled">
-      <div class="card">
-        <li class="card-body">
-          <%= dj.name %>
-          <br>
-          <br>
-          <%= audio_tag dj.audio_url,:autoplay=>false,:controls => true, class:"mx-auto d-block" unless dj.audio.blank? %>
-          <br>
-          <%= link_to 'View Profile', dj, class:"btn btn-primary" %>
-          <br><br>
-          <% if dj.user == current_user %>
-            <%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %>
-            <br><br>
-            <%= link_to 'Destroy', dj, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
-          <% end %>
-        </li>
+<% @djs.each_slice(3) do |djs| %>
+  <div class="row">
+    <% djs.each do |dj| %>
+      <div id="dj-row" class="col-md-4">
+        <div class="text-center">
+          <ul class="list-unstyled">
+            <div class="card">
+              <li class="card-body">
+                <h3><%= dj.name %></h3>
+                <%=  image_tag(dj.image_url, class:"card-img-top") %>
+                <br>
+                <br>
+              <p>Location:<br><%= dj.location %></p>
+              <p>Rate:<br>$<%= dj.rate %>0/hr</p>
+                <!-- <%= audio_tag dj.audio_url,:autoplay=>false,:controls => true, class:"mx-auto d-block" unless dj.audio.blank? %> -->
+                <br>
+                <%= link_to 'View Profile', dj, class:"btn btn-primary" %>
+                <br>
+                <br>
+                <% if dj.user == current_user %>
+                  <%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %>
+                  <br>
+                  <br>
+                  <%= link_to 'Destroy', dj, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+                <% end %>
+              </li>
+            </div>
+          </ul>
+        </div>
       </div>
-    </ul>
+    <% end %>
   </div>
 <% end %>
+<!-- <% @djs.each do |dj| %> -->
+<!-- <% end %> -->
 <!-- <p id="notice"><%= notice %></p> -->
 <!-- <table class="table table-bordered table-dark">
   <thead>
