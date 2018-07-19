@@ -1,31 +1,51 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Djs</h1>
-
-<table class="table">
+<% @djs.each do |dj| %>
+  <div class="text-center">
+    <ul class="list-unstyled">
+      <div class="card">
+        <li class="card-body">
+          <%= dj.name %>
+          <br>
+          <br>
+          <%= audio_tag dj.audio_url,:autoplay=>false,:controls => true, class:"mx-auto d-block" unless dj.audio.blank? %>
+          <br>
+          <%= link_to 'View Profile', dj, class:"btn btn-primary" %>
+          <br><br>
+          <% if dj.user == current_user %>
+            <%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %>
+            <br><br>
+            <%= link_to 'Destroy', dj, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+          <% end %>
+        </li>
+      </div>
+    </ul>
+  </div>
+<% end %>
+<!-- <p id="notice"><%= notice %></p> -->
+<!-- <table class="table table-bordered table-dark">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Portfolio</th>
-      <th>Rate</th>
-      <!-- <th>Image</th> -->
-      <!-- <th>Dj check</th> -->
-      <!-- <th>User</th> -->
-      <th colspan="3"></th>
+      <th>Name</th> -->
+<!-- <th>Description</th> -->
+<!-- <th>Location</th> -->
+<!-- <th>Portfolio</th> -->
+<!-- <th>Rate</th> -->
+<!-- <th>Demo</th> -->
+<!-- <th>Image</th> -->
+<!-- <th>Dj check</th> -->
+<!-- <th>User</th> -->
+<!-- <th colspan="3"></th>
     </tr>
-  </thead>
-
-  <tbody>
+  </thead> -->
+<!-- <tbody>
     <% @djs.each do |dj| %>
       <tr>
-        <td><%= dj.name %></td>
-        <td><%= dj.description %></td>
-        <td><%= dj.location %></td>
-        <td><%= dj.portfolio %></td>
-        <td>$<%= dj.rate %></td>
-        <td><%= link_to 'Show', dj, class:"btn btn-primary" %></td>
+        <td><%= dj.name %></td> -->
+<!-- <td><%= dj.description %></td> -->
+<!-- <td><%= dj.location %></td> -->
+<!-- <td><%= dj.portfolio %></td> -->
+<!-- <td>$<%= dj.rate %></td> -->
+<!-- <td><%= audio_tag dj.audio_url,:autoplay=>false,:controls => true unless dj.audio.blank? %></td> -->
+<!-- <td><%= link_to 'View Profile', dj, class:"btn btn-primary" %></td>
         <% if dj.user == current_user %>
         <td><%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %></td>
         <td><%= link_to 'Destroy', dj, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %></td>
@@ -33,4 +53,4 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->

@@ -1,37 +1,8 @@
-<!-- <p>
-      <strong>Name:</strong>
-      <%= @dj.name %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @dj.user.email %>
-    </p>
-
-    <p>
-      <strong>Description:</strong>
-      <%= @dj.description %>
-    </p>
-
-    <p>
-      <strong>Location:</strong>
-      <%= @dj.location %>
-    </p>
-
-    <p>
-      <strong>Portfolio:</strong>
-      <%= @dj.portfolio %>
-    </p>
-
-    <p>
-      <strong>Rate:</strong>
-      $<%= @dj.rate %> per hour
-    </p> -->
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
-      <div class="card h-100">
-        <%=  image_tag(@dj.image_url, class:"card-img-top", size: '700x400') %>
+    <div class="col-md-4 mt-4 mx-auto">
+      <div class="card-img-block">
+        <%=  image_tag(@dj.image_url, class:"card-img-top") %>
         <div id="dj-card-body" class="card-body">
           <h1 id="dj-card-header" class="card-header"><%= @dj.name %></h1>
           <div id="dj-card-text" class="card-text">
@@ -41,7 +12,10 @@
               <li class="list-group-item">Location: <%= @dj.location %></li>
               <li class="list-group-item">Portfolio: <%= @dj.portfolio %></li>
               <li class="list-group-item">Rate: $<%= @dj.rate %>/hour</li>
-              <li class="list-group-item"><%= link_to 'Edit', edit_dj_path(@dj) %></li>
+              <li class="list-group-item">Demo:<br>
+                <br>
+                <%= audio_tag @dj.audio_url,:autoplay=>false,:controls => true unless @dj.audio.blank? %></li>
+              <!-- <li class="list-group-item"><%= link_to 'Edit', edit_dj_path(@dj) %></li> -->
               <li class="list-group-item"><%= link_to 'Back', djs_path %></li>
               <li class="list-group-item"><%= link_to 'Book', dj_bookings_path(@dj), method: :post %></li>
             </ul>

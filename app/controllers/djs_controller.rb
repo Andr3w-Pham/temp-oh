@@ -94,6 +94,6 @@ class DjsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dj_params
-      params.require(:dj).permit(:name, :description, :location, :portfolio, :rate, :image, :dj_check, :user_id)
+      params.require(:dj).permit(:name, :description, :location, :portfolio, :rate, :image, :audio, :user_id)
     end
 end
