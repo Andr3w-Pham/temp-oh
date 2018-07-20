@@ -7,8 +7,8 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    # @bookings = Booking.all
-    @bookings = Booking.where("dj_id=?", params[:dj_id])
+    @bookings = Booking.all
+    # @bookings = Booking.where("dj_id=?", params[:dj_id])
   end
 
   # GET /bookings/1
@@ -38,6 +38,7 @@ class BookingsController < ApplicationController
     respond_to do |format|
       if @booking.save
         format.html { redirect_to dj_booking_path(@dj, @booking), notice: 'Booking was successfully created.' }
+        # redirect_to charges_page_path(dj_id: @dj.id)
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }

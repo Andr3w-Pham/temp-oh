@@ -1,24 +1,24 @@
 <% @djs.each do |dj| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4 mx-auto">
-        <div class="card">
-          <div id="dj-card-body" class="card-body">
-            <%=  image_tag(dj.image_url, class:"card-img-top") %>
-            <h1 id="dj-card-header" class="card-header"><%= dj.name %></h1>
-            <div id="dj-card-text" class="card-text">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Rate: $<%= dj.rate %>/hour</li>
-                <li class="list-group-item"><%= dj.name %>'s Demo:<br>
-                  <br>
-                  <%= audio_tag dj.audio_url,:autoplay=>false,:controls => true unless dj.audio.blank? %>
-              </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 mx-auto">
+          <div class="card">
+            <div id="dj-card-body" class="card-body">
+              <%=  image_tag(dj.image_url, class:"card-img-top") %>
+              <h1 id="dj-card-header" class="card-header"><%= dj.name %></h1>
+              <div id="dj-card-text" class="card-text">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Rate: $<%= dj.rate %>/hour</li>
+                  <li class="list-group-item"><%= dj.name %>'s Demo:<br>
+                    <br>
+                    <%= audio_tag dj.audio_url,:autoplay=>false,:controls => true unless dj.audio.blank? %>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <br>
 <% end %>

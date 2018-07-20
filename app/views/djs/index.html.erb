@@ -18,6 +18,7 @@
                 <br>
                 <br>
                 <% if dj.user == current_user %>
+                  <%= link_to 'Bookings',  dj_bookings_path(dj), class:"btn btn-primary" %>
                   <%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %>
                   <br>
                   <br>
