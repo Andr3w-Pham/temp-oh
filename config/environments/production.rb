@@ -101,7 +101,7 @@ Rails.application.configure do
  #  user_name: Rails.application.credentials.mailgun[:mailgun_default_smtp],
  #  password: Rails.application.credentials.mailgun[:mailgun_password],
  # }
- config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+ config.action_mailer.default_url_options = { host: 'temp-oh.herokuapp.com' }
  # Gmail configuration
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
