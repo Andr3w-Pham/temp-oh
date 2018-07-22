@@ -9,7 +9,7 @@
       <div class="card-dj">
         <div class="card-body">
           <p>
-            <strong>dj Name:</strong>
+            <strong>DJ Name:</strong>
             <%= @dj.name %>
           </p>
           <p>
@@ -17,9 +17,11 @@
             <%= @dj.description %>
           </p>
           <label class="amount">
-            <strong>rate:</strong>
-            <span>$<%= @dj.rate %>0</span>
+            <strong>Rate:</strong>
+            <span>$<%= @dj.rate %>0/hr</span>
           </label>
+
+
           <p>
             <strong>
               <%= image_tag(@dj.image_url, width: "30%", height:"30%")%>

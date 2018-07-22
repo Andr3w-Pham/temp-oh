@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get "home/profile"
   get "bookings/my_bookings"
-  resources :reviews
   resources :djs do
     resources :bookings
     resources :reviews

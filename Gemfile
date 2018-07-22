@@ -23,6 +23,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'stripe'
+gem 'pg_search'
 # gem 'jquery-ui-rails'
 
 # Use CoffeeScript for .coffee assets and views

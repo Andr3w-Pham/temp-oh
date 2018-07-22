@@ -10,6 +10,19 @@ class Dj < ApplicationRecord
   mount_uploader :image, ImageUploader
   mount_uploader :audio, AudioUploader
   has_many :bookings, dependent: :destroy
-  has_many :reviews, through: :bookings, dependent: :destroy
-  # has_many :reviews, dependent: :destroy
+  # has_many :reviews, through: :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+
+  #search
+  # include PgSearch
+  # pg_search_scope :search, against: [:name, :rate],
+  #   using: {tsearch: {dictionary: "english"}}
+
+  def self.text_search(query)
+    if query.present?
+      where("name @@ :q", q: query)
+    else
+      unscoped
+    end
+  end
 end

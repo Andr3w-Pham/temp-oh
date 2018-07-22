@@ -31,6 +31,7 @@ class ChargesController < ApplicationController
     @dj = Dj.find(params[:dj_id])
   end
 
+
   def dj_params
     params.require(:dj).permit(:name, :description, :location, :portfolio, :rate, :image, :audio, :user_id)
   end

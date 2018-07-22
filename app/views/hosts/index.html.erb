@@ -1,5 +1,5 @@
 <!-- <p id="notice"><%= notice %></p> -->
-<% @hosts.each do |host| %>
+<!-- <% @hosts.each do |host| %>
   <% if host.user == current_user %>
     <div class="container col-md-6 mx-auto">
       <div id="host-card-body" class="card">
@@ -17,39 +17,26 @@
     </div>
   <% else %>
   <% end %>
-<% end %>
-<!-- <p id="notice"><%= notice %></p>
-
+<% end %> -->
 <h1>Your Host Profile</h1>
-
 <table class="table">
   <thead>
     <tr>
-    <% @hosts.each do |host| %>
-      <% if host.user == current_user %>
       <th>Name</th>
-      <th>Location</th> -->
-<!-- <th>Image</th> -->
-<!-- <th>User</th> -->
-<!-- <th colspan="3"></th>
-      <% else %>
-      <% end %>
+      <th>Location</th>
+      <th>User</th>
+      <th colspan="3"></th>
     </tr>
-    <% end %>
-  </thead> -->
-<!-- <tbody>
-    <% @hosts.each do |host| %>
-      <tr>
-        <% if host.user == current_user %>
+  </thead>
+  <tbody>
+    <tr>
+      <% @hosts.each do |host| %>
         <td><%= host.name %></td>
-        <td><%= host.location %></td> -->
-<!-- <td><%= host.image%></td> -->
-<!-- <td><%= host.user %></td> -->
-<!-- <td><%= link_to 'Show', host %></td>
+        <td><%= host.location %></td>
+        <td><%= link_to 'Show', host %></td>
         <td><%= link_to 'Edit', edit_host_path(host) %></td>
         <td><%= link_to 'Destroy', host, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
       </tr>
     <% end %>
   </tbody>
-</table> -->
+</table>

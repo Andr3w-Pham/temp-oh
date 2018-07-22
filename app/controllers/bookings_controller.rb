@@ -7,8 +7,8 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
-    # @bookings = Booking.where("dj_id=?", params[:dj_id])
+    # @bookings = Booking.all
+    @bookings = Booking.where("dj_id=?", params[:dj_id])
   end
 
   def my_bookings
@@ -32,11 +32,8 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.new
-    logger.debug('2222222222222')
-    logger.debug(current_user.host)
+    @booking = Booking.new(booking_params)
     @booking.host_id = current_user.host.id
-
     @booking.dj_id = @dj.id
 
     respond_to do |format|

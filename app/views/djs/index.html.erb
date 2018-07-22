@@ -13,7 +13,7 @@
                 <%= link_to 'Rate',   new_dj_review_path(:dj_id => dj.id), class:"btn btn-primary" %>
                 <!-- <%= link_to 'Hire', new_charge_path(:dj_id => dj.id), method: :get, class: "btn btn-primary" %> -->
                 <% if dj.user == current_user %>
-                  <%= link_to 'Bookings',   bookings_my_bookings_path(dj), class:"btn btn-primary" %>
+                  <%= link_to 'Bookings',  dj_bookings_path(dj), class:"btn btn-primary" %>
                   <%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %>
                   <br>
                   <br>
