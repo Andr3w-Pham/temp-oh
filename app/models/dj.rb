@@ -10,5 +10,6 @@ class Dj < ApplicationRecord
   mount_uploader :image, ImageUploader
   mount_uploader :audio, AudioUploader
   has_many :bookings, dependent: :destroy
-  has_many :reviews, through: :bookings
+  has_many :reviews, through: :bookings, dependent: :destroy
+  # has_many :reviews, dependent: :destroy
 end

@@ -1,26 +1,10 @@
-<div id="host-card" class="card mx-auto">
-    <!-- <p>
-      <strong>Name:</strong>
-      <%= @host.name %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @host.user.email %>
-    </p>
-
-    <p>
-      <strong>Location:</strong>
-      <%= @host.location %>
-    </p> -->
-    <img class="card-img-top">
-    <%= image_tag(@host.image_url, width: "100%", height:"100%")%>
-    </img>
-    <div id="host-card-body" class="card-body">
-      <h1 id="host-card-header" class="card-header"><%= @host.name %></h1>
-      <div id="host-card-text" class="card-text">
+<div class="container col-md-6 mx-auto">
+  <div class="card">
+    <div id="dj-card-body" class="card-body">
+      <h1 id="dj-card-header" class="card-header"><%= @host.name %></h1>
+      <%=  image_tag(@host.image_url, class:"card-img-top") %>
+      <div id="dj-card-text" class="card-text">
         <ul class="list-group list-group-flush">
-          <p id="notice"><%= notice %></p>
           <li class="list-group-item">Email: <%= @host.user.email %></li>
           <li class="list-group-item">Location: <%= @host.location %></li>
           <li class="list-group-item"><%= link_to 'Edit', edit_host_path(@host) %></li>
@@ -29,4 +13,4 @@
       </div>
     </div>
   </div>
-  <br>
+</div>

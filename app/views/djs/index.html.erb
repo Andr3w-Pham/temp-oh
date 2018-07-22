@@ -8,17 +8,12 @@
               <li class="card-body">
                 <h3><%= dj.name %></h3>
                 <%=  image_tag(dj.image_url, class:"card-img-top") %>
-                <br>
-                <br>
-              <p>Location:<br><%= dj.location %></p>
-              <p>Rate:<br>$<%= dj.rate %>0/hr</p>
-                <!-- <%= audio_tag dj.audio_url,:autoplay=>false,:controls => true, class:"mx-auto d-block" unless dj.audio.blank? %> -->
-                <br>
+                <br><br>
                 <%= link_to 'View Profile', dj, class:"btn btn-primary" %>
-                <br>
-                <br>
+                <%= link_to 'Rate',   new_dj_review_path(:dj_id => dj.id), class:"btn btn-primary" %>
+                <!-- <%= link_to 'Hire', new_charge_path(:dj_id => dj.id), method: :get, class: "btn btn-primary" %> -->
                 <% if dj.user == current_user %>
-                  <%= link_to 'Bookings',  dj_bookings_path(dj), class:"btn btn-primary" %>
+                  <%= link_to 'Bookings',   bookings_my_bookings_path(dj), class:"btn btn-primary" %>
                   <%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %>
                   <br>
                   <br>

@@ -1,13 +1,12 @@
-<p id="notice"><%= notice %></p>
-<div id="host-card" class="card mx-auto">
-  <div id="host-card-body" class="card-body">
-    <% @hosts.each do |host| %>
-      <% if host.user == current_user %>
+<!-- <p id="notice"><%= notice %></p> -->
+<% @hosts.each do |host| %>
+  <% if host.user == current_user %>
+    <div class="container col-md-6 mx-auto">
+      <div id="host-card-body" class="card">
         <h1 id="host-card-header" class="card-header"><%= host.name %></h1>
-        <p><%=  image_tag(host.image_url, class:"card-img-top", size: '100x200') %></p>
+        <%=  image_tag(host.image_url, class:"card-img-top mx-auto") %>
         <div id="host-card-text" class="card-text">
           <ul class="list-group list-group-flush">
-            <p id="notice"><%= notice %></p>
             <li class="list-group-item">Email: <%= host.user.email %></li>
             <li class="list-group-item">Location: <%= host.location %></li>
             <li class="list-group-item"><%= link_to 'Edit', edit_host_path(host) %></li>
@@ -16,10 +15,8 @@
         </div>
       </div>
     </div>
-    <p colspan="3"></p>
   <% else %>
   <% end %>
-</p>
 <% end %>
 <!-- <p id="notice"><%= notice %></p>
 

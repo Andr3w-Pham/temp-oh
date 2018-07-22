@@ -1,26 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto">
-      <div class="card-img-block img-fluid img-thumbnail">
+      <div id="dj-card-body" class="card-body">
+        <h1 id="dj-card-header" class="card-header"><%= @dj.name %></h1>
         <%=  image_tag(@dj.image_url, class:"card-img-top") %>
-        <div id="dj-card-body" class="card-body">
-          <h1 id="dj-card-header" class="card-header"><%= @dj.name %></h1>
-          <div id="dj-card-text" class="card-text">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Description: <%= @dj.description %></li>
-              <li class="list-group-item">Email: <%= @dj.user.email %></li>
-              <li class="list-group-item">Location: <%= @dj.location %></li>
-              <li class="list-group-item">Portfolio: <%= @dj.portfolio %></li>
-              <li class="list-group-item">Rate: $<%= @dj.rate %>/hour</li>
-              <li class="list-group-item">Demo:<br>
-                <br>
-                <%= audio_tag @dj.audio_url,:autoplay=>false,:controls => true unless @dj.audio.blank? %></li>
-              <!-- <li class="list-group-item"><%= link_to 'Edit', edit_dj_path(@dj) %></li> -->
-              <li class="list-group-item"><%= link_to 'Back', djs_path %></li>
-              <li class="list-group-item"><%= link_to 'Book', dj_bookings_path(@dj), method: :post %></li>
-              
-            </ul>
-          </div>
+        <div id="dj-card-text" class="card-text">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Description: <%= @dj.description %></li>
+            <li class="list-group-item">Email: <%= @dj.user.email %></li>
+            <li class="list-group-item">Location: <%= @dj.location %></li>
+            <li class="list-group-item">Portfolio: <%= @dj.portfolio %></li>
+            <li class="list-group-item">Rate: $<%= @dj.rate %>/hour</li>
+            <li class="list-group-item">Demo:<br>
+              <br>
+              <%= audio_tag @dj.audio_url,:autoplay=>false,:controls => true unless @dj.audio.blank? %></li>
+            <!-- <li class="list-group-item"><%= link_to 'Edit', edit_dj_path(@dj) %></li> -->
+            <li class="list-group-item"><%= link_to 'Back', djs_path %></li>
+            <li class="list-group-item"><%= link_to 'Book',  new_dj_booking_path(@dj), method: :get %></li>
+          </ul>
         </div>
       </div>
     </div>

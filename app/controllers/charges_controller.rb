@@ -1,9 +1,5 @@
 class ChargesController < ApplicationController
   before_action :set_dj, only: [:new, :show, :edit, :update, :destroy]
-  def page
-    @dj = dj.find(params[:dj_id])
-  end
-
   def new
     @amount = @dj.rate
   end
@@ -30,12 +26,12 @@ class ChargesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dj
-      @dj = dj.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dj
+    @dj = Dj.find(params[:dj_id])
+  end
 
-    def dj_params
-      params.require(:dj).permit(:name, :description, :location, :portfolio, :rate, :image, :audio, :user_id)
-    end
+  def dj_params
+    params.require(:dj).permit(:name, :description, :location, :portfolio, :rate, :image, :audio, :user_id)
+  end
 end

@@ -6,4 +6,5 @@ class Host < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings, source: :host, dependent: :destroy
+  # has_many :reviews, dependent: :destroy
 end

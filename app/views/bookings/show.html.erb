@@ -1,14 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Host:</strong>
+  <strong>Host's Name:</strong>
   <%= @booking.host.name %>
 </p>
 
 <p>
-  <strong>Dj:</strong>
+  <strong>Host's Email:</strong>
+  <%= @booking.host.user.email %>
+</p>
+
+<p>
+  <strong>Booked:</strong>
   <%= @booking.dj.name %>
 </p>
+
+<p>
+  <strong>Event Location:</strong>
+  <%= @booking.address %>
+</p>
+
+<p>
+  <strong>Event Date:</strong>
+  <%= @booking.date %>
+</p>
+
+<p>
+  <strong>Event Time:</strong>
+  <%= @booking.time %>
+</p>
+
 
 <%= link_to 'Edit', edit_dj_booking_path(@dj) %> |
 <%= link_to 'Back', dj_bookings_path(@dj) %>

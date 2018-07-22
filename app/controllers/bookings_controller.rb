@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :set_dj, only: [:new, :create, :edit, :show, :update, :destroy, :index]
-  before_action :check_host_presence, only: [:index, :show]
+
   before_action :check_dj_presence, only: [:new, :create]
 
   # GET /bookings
@@ -9,6 +9,10 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
     # @bookings = Booking.where("dj_id=?", params[:dj_id])
+  end
+
+  def my_bookings
+    @bookings = Booking.where("dj_id=?", params[:dj_id])
   end
 
   # GET /bookings/1
@@ -37,7 +41,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to dj_booking_path(@dj, @booking), notice: 'Booking was successfully created.' }
+        format.html { redirect_to new_charge_path(:dj_id => @dj.id), notice: 'Booking was successfully created.' }
         # redirect_to charges_page_path(dj_id: @dj.id)
         format.json { render :show, status: :created, location: @booking }
       else
@@ -52,7 +56,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        format.html { redirect_to dj_booking_path(@dj, @booking), notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit }
@@ -85,19 +89,12 @@ class BookingsController < ApplicationController
     end
   end
 
-  def check_host_presence
-    if current_user.host
-      flash[:notice] = "Booking was sent to DJ"
-      redirect_to root_path
-    end
-  end
-
   def set_dj
     @dj = Dj.find(params[:dj_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def booking_params
-    params.require(:booking).permit(:host_id, :dj_id)
+    params.require(:booking).permit(:host_id, :dj_id, :address, :date, :time)
   end
 end
