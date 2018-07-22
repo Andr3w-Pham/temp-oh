@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_22_035625) do
+ActiveRecord::Schema.define(version: 2018_07_22_153336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,13 +31,11 @@ ActiveRecord::Schema.define(version: 2018_07_22_035625) do
     t.string "name"
     t.text "description"
     t.string "location"
-    t.string "portfolio"
     t.decimal "rate"
     t.string "image"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "audio"
     t.index ["user_id"], name: "index_djs_on_user_id"
   end
 
@@ -60,6 +58,18 @@ ActiveRecord::Schema.define(version: 2018_07_22_035625) do
     t.text "comment"
     t.index ["dj_id"], name: "index_reviews_on_dj_id"
     t.index ["host_id"], name: "index_reviews_on_host_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "title"
+    t.string "genre"
+    t.text "description"
+    t.string "image"
+    t.string "audio"
+    t.bigint "dj_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dj_id"], name: "index_songs_on_dj_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,4 +97,5 @@ ActiveRecord::Schema.define(version: 2018_07_22_035625) do
   add_foreign_key "hosts", "users"
   add_foreign_key "reviews", "djs"
   add_foreign_key "reviews", "hosts"
+  add_foreign_key "songs", "djs"
 end

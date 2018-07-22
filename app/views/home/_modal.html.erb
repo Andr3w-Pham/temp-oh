@@ -15,15 +15,18 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-          <% @djs.each do |dj| %>
+          <% @songs.each do |song| %>
             <div class="text-center">
               <ul class="list-unstyled">
                 <div class="card">
                   <li class="card-body">
-                    <%= dj.name %>
+                    <%= song.title %>
+                    <br>
+                    <%= audio_tag song.audio_url,:autoplay=>false,:controls => true unless song.audio.blank? %>
+                    <br>
+                    By: <%= song.dj.name %>
                     <br>
                     <br>
-                    <%= audio_tag dj.audio_url,:autoplay=>false,:controls => true, class:"mx-auto d-block" unless dj.audio.blank? %>
                   </li>
                 </div>
               </ul>

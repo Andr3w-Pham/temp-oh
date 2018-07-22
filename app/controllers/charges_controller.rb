@@ -35,6 +35,6 @@ class ChargesController < ApplicationController
 
 
   def dj_params
-    params.require(:dj).permit(:name, :description, :location, :portfolio, :rate, :image, :audio, :user_id)
+    params.require(:dj).permit(:name, :description, :location, :rate, :image, :audio, :user_id)
   end
 end

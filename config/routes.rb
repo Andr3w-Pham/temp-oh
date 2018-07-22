@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :djs do
     resources :bookings
     resources :reviews
+    resources :songs
   end
   resources :hosts
   resources :charges, only: [:new, :create]

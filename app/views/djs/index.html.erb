@@ -9,11 +9,17 @@
                 <h3><%= dj.name %></h3>
                 <%=  image_tag(dj.image_url, class:"card-img-top") %>
                 <br><br>
+                <%= link_to 'Uploads',  dj_songs_path(dj), class:"btn btn-primary" %>
+                <br><br>
                 <%= link_to 'View Profile', dj, class:"btn btn-primary" %>
-                <%= link_to 'Rate',   new_dj_review_path(:dj_id => dj.id), class:"btn btn-primary" %>
-                <!-- <%= link_to 'Hire', new_charge_path(:dj_id => dj.id), method: :get, class: "btn btn-primary" %> -->
+                <%= link_to 'Review',   new_dj_review_path(:dj_id => dj.id), class:"btn btn-primary" %>
                 <% if dj.user == current_user %>
+                  <%= link_to 'Upload',  new_dj_song_path(dj), class:"btn btn-primary" %>
+                  <br>
+                  <br>
                   <%= link_to 'Bookings',  dj_bookings_path(dj), class:"btn btn-primary" %>
+                  <br>
+                  <br>
                   <%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %>
                   <br>
                   <br>
@@ -36,7 +42,7 @@
       <th>Name</th> -->
 <!-- <th>Description</th> -->
 <!-- <th>Location</th> -->
-<!-- <th>Portfolio</th> -->
+
 <!-- <th>Rate</th> -->
 <!-- <th>Demo</th> -->
 <!-- <th>Image</th> -->
@@ -51,9 +57,9 @@
         <td><%= dj.name %></td> -->
 <!-- <td><%= dj.description %></td> -->
 <!-- <td><%= dj.location %></td> -->
-<!-- <td><%= dj.portfolio %></td> -->
+
 <!-- <td>$<%= dj.rate %></td> -->
-<!-- <td><%= audio_tag dj.audio_url,:autoplay=>false,:controls => true unless dj.audio.blank? %></td> -->
+
 <!-- <td><%= link_to 'View Profile', dj, class:"btn btn-primary" %></td>
         <% if dj.user == current_user %>
         <td><%= link_to 'Edit', edit_dj_path(dj), class:"btn btn-primary" %></td>

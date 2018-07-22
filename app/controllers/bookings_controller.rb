@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :set_dj, only: [:new, :create, :edit, :show, :update, :destroy, :index]
-
   before_action :check_dj_presence, only: [:new, :create]
 
   # GET /bookings

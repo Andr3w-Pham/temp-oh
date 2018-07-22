@@ -1,0 +1,63 @@
+<% @songs.each_slice(3) do |songs| %>
+  <div class="row">
+    <% songs.each do |song| %>
+      <div id="dj-row" class="col-md-4">
+        <div class="text-center">
+          <ul class="list-unstyled">
+            <div class="card">
+              <li class="card-body">
+                <h3><%= song.title %></h3>
+                <%=  image_tag(song.image_url, class:"card-img-top") %>
+                <br><br>
+                <%= link_to 'Show', dj_song_path(@dj,song), class:"btn btn-primary" %>
+                <% if @dj.user == current_user %>
+                  <%= link_to 'Upload',  new_dj_song_path(@dj), class:"btn btn-primary" %>
+                  <br>
+                  <br>
+                  <%= link_to 'Edit', edit_dj_song_path(@dj,song), class:"btn btn-primary" %>
+                  <br>
+                  <br>
+                  <%= link_to 'Destroy', dj_song_path(@dj,song), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+                <% end %>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<!-- <h1>Songs</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th> -->
+      <!-- <th>Description</th> -->
+      <!-- <th>Image</th>
+      <th>Audio</th> -->
+      <!-- <th colspan="3"></th>
+    </tr>
+  </thead> -->
+
+  <!-- <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.title %></td>
+        <td><%= song.genre %></td>
+        <td><%= song.description %></td> -->
+        <!-- <td><%= song.image %></td>
+        <td><%= song.audio %></td> -->
+        <!-- <td><%= link_to 'Show', dj_song_path(@dj,song) %></td>
+        <td><%= link_to 'Edit', edit_dj_song_path(@dj,song) %></td>
+        <td><%= link_to 'Destroy', dj_song_path(@dj,song), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> -->
+
+<!-- <br> -->
+
+<!-- <%= link_to 'New Song', new_dj_song_path %> -->

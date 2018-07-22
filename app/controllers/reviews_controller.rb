@@ -82,7 +82,7 @@ class ReviewsController < ApplicationController
     def check_dj_presence
       if current_user.dj
         flash[:notice] = "DJ user detected, only host can review"
-        redirect_to root_path
+        redirect_to djs_path
       end
     end
 
