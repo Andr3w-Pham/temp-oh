@@ -1,0 +1,24 @@
+<% @djs.each do |dj| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mx-auto">
+        <div class="card h-100">
+          <div id="dj-card-body" class="card-body">
+            <%=  image_tag(dj.image_url, class:"card-img-top", size: '100x200') %>
+            <h1 id="dj-card-header" class="card-header"><%= dj.name %></h1>
+            <div id="dj-card-text" class="card-text">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Description: <%= dj.description %></li>
+                <li class="list-group-item">Location: <%= dj.location %></li>
+                <li class="list-group-item">Portfolio: <%= dj.portfolio %></li>
+                <li class="list-group-item">Rate: $<%= dj.rate %>/hour</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<% end %>
