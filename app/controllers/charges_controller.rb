@@ -17,9 +17,11 @@ class ChargesController < ApplicationController
       customer: customer.id,
       amount: @amount,
       description: 'Your Receipt',
-      receipt_email: 'andrew.webdev09@gmail.com',
+      receipt_email: 'test@gmail.com',
       currency: 'AUD'
     )
+    @email = customer.email
+    ModelMailer.new_booking(@email).deliver_now
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path

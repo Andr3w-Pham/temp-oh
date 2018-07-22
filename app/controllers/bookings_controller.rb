@@ -38,7 +38,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to new_charge_path(:dj_id => @dj.id), notice: 'Booking was successfully created.' }
+        format.html { redirect_to new_charge_path(:dj_id => @dj.id), notice: 'Booking was successfully created.(Note: We charge you only for the first hour as a deposit, you can pay the DJ the remaining amount after the event)' }
         # redirect_to charges_page_path(dj_id: @dj.id)
         format.json { render :show, status: :created, location: @booking }
       else

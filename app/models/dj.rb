@@ -3,7 +3,7 @@ class Dj < ApplicationRecord
   validates :description, presence: true
   validates :location, presence: true
   validates :portfolio, presence: true
-  validates :rate, presence: true
+  validates :rate, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 80, only_integer: true }, presence: true
   validates :image, presence: true
   # validates :audio, presence: true
   belongs_to :user
