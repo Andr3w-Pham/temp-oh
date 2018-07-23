@@ -68,6 +68,7 @@ Add Here
 ### Postgresql database
 Postgresql was used from the start.
 Example:  ```rails new test --database postgresql```
+
 **Resources:**
 
 * [Install Postgresql, Video Guide](https://www.youtube.com/watch?v=5AOkxqFaYEE)
