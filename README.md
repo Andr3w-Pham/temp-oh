@@ -26,7 +26,7 @@
 
 ### Issue & Solution
  **Issue:**
-- There is no platform that allows new & aspiring DJs to promote their music and receive bookings.
+- No platform that allows new & aspiring DJs to promote their music and receive bookings.
 
 **Solution:**
 - Build a two-sided marketplace that provides a platform for new & aspiring DJs to promote themselves and the chance to receive bookings from hosts(customers)
