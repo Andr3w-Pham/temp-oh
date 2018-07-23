@@ -10,13 +10,9 @@
                 <%=  image_tag(song.image_url, class:"card-img-top") %>
                 <br><br>
                 <%= link_to 'Show', dj_song_path(@dj,song), class:"btn btn-primary" %>
+                <%= link_to 'Back', djs_path(@dj,song), class:"btn btn-primary" %>
                 <% if @dj.user == current_user %>
-                  <%= link_to 'Upload',  new_dj_song_path(@dj), class:"btn btn-primary" %>
-                  <br>
-                  <br>
                   <%= link_to 'Edit', edit_dj_song_path(@dj,song), class:"btn btn-primary" %>
-                  <br>
-                  <br>
                   <%= link_to 'Destroy', dj_song_path(@dj,song), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
                 <% end %>
               </li>

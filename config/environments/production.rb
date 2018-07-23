@@ -91,26 +91,30 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
- #  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
- #  config.action_mailer.delivery_method = :smtp
- #  config.action_mailer.smtp_settings = {
- #  authentication: "plain",
- #  address: 'smtp.mailgun.org',
- #  port: 587,
- #  domain: Rails.application.credentials.mailgun[:mailgun_domain_url],
- #  user_name: Rails.application.credentials.mailgun[:mailgun_default_smtp],
- #  password: Rails.application.credentials.mailgun[:mailgun_password],
- # }
- config.action_mailer.default_url_options = { host: 'temp-oh.herokuapp.com' }
- # Gmail configuration
+  config.action_mailer.default_url_options = { host: 'temp-oh.herokuapp.com' }
+  # Gmail configuration
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.mailgun.org',
+    address:              'smtp.gmail.com',
     port:                 587,
-    domain:               Rails.application.credentials.mailgun[:mailgun_domain_url],
-    user_name:            Rails.application.credentials.mailgun[:mailgun_default_smtp],
-    password:             Rails.application.credentials.mailgun[:mailgun_password],
+    domain:               'example.com',
+    user_name:            Rails.application.credentials.gmail[:gmail_username],
+    password:             Rails.application.credentials.gmail[:gmail_password],
     authentication:       'plain',
+    enable_starttls_auto: true
   }
+ # config.action_mailer.default_url_options = { host: 'temp-oh.herokuapp.com' }
+ # # Gmail configuration
+ #  config.action_mailer.raise_delivery_errors = true
+ #  config.action_mailer.delivery_method = :smtp
+ #  config.action_mailer.smtp_settings = {
+ #    address:              'smtp.mailgun.org',
+ #    port:                 587,
+ #    domain:               Rails.application.credentials.mailgun[:mailgun_domain_url],
+ #    user_name:            Rails.application.credentials.mailgun[:mailgun_default_smtp],
+ #    password:             Rails.application.credentials.mailgun[:mailgun_password],
+ #    authentication:       'plain',
+ #  }
 end

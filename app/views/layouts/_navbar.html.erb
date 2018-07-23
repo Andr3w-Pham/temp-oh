@@ -5,12 +5,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbar1">
     <ul class="navbar-nav ml-auto">
-      <%= form_tag(djs_path, method: :get, class: "align-self-center form-inline my-2 my-lg-0") do %>
-        <p>
-          <%= text_field_tag :query, params[:query],placeholder: "search", class: "form-control mr-sm-2" %>
-          <%= submit_tag :Search, name: nil %>
-        </p>
-      <% end %>
+      <div class="dj_search form-group">
+        <%= form_tag(djs_path, method: "get") do %>
+          <%= text_field_tag :search, nil, placeholder: "Search", class: "form-control" %>
+          <%= submit_tag "", style: "display: none;" %>
+        <% end %>
+      </div>
 
       <!-- <li class="nav-item active">
         <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>

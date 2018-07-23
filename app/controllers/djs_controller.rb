@@ -7,7 +7,11 @@ class DjsController < ApplicationController
   # GET /djs.json
   def index
     # @djs = Dj.all
-    @djs = Dj.text_search(params[:query])
+    if params[:search].present?
+      @djs = Dj.perform_search(params[:search])
+    else
+      @djs =Dj.all
+    end
   end
 
   # GET /djs/1

@@ -1,6 +1,27 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div id="dj-card-body" class="card-body">
+        <h1 id="dj-card-header" class="card-header">Host's Name: <%= @booking.host.name %></h1>
+        <div id="dj-card-text" class="card-text">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Host's Email: <%= @booking.host.user.email %></li>
+            <li class="list-group-item">Event Date:<%= @booking.date.strftime("%A, %d %B %Y") %>
+              <li class="list-group-item">Event Date:<%= @booking.time %></li>
+              <li class="list-group-item">Event Location: <%= @booking.address %></li>
+              <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@booking.latitude},#{@booking.longitude}&markers=#{@booking.latitude},#{@booking.longitude}&zoom=14&size=640x400&key=AIzaSyAvQchP4YLseAbDqVxO1lzvUEcr0ej-_r0",class: 'img-fluid img-rounded'%>
+            <!-- <li class="list-group-item"><%= link_to 'Edit', edit_dj_booking_path(@dj) %> </li> -->
+            <li class="list-group-item"><%= link_to 'Back', dj_bookings_path(@dj) %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
+
+<!-- <p>
   <strong>Host's Name:</strong>
   <%= @booking.host.name %>
 </p>
@@ -16,13 +37,13 @@
 </p>
 
 <p>
-  <strong>Event Location:</strong>
+  <strong>Event booking:</strong>
   <%= @booking.address %>
 </p>
 
 <p>
   <strong>Event Date:</strong>
-  <%= @booking.date %>
+  <%= @booking.date.strftime("%A, %d %B %Y") %>
 </p>
 
 <p>
@@ -30,6 +51,9 @@
   <%= @booking.time %>
 </p>
 
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@booking.latitude},#{@booking.longitude}&markers=#{@booking.latitude},#{@booking.longitude}&zoom=14&size=640x400&key=AIzaSyAvQchP4YLseAbDqVxO1lzvUEcr0ej-_r0",
+                    class: 'img-fluid img-rounded'%>
+
 
 <%= link_to 'Edit', edit_dj_booking_path(@dj) %> |
-<%= link_to 'Back', dj_bookings_path(@dj) %>
+<%= link_to 'Back', dj_bookings_path(@dj) %> -->

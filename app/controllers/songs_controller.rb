@@ -6,7 +6,12 @@ class SongsController < ApplicationController
   # GET /songs.json
   def index
     # @songs = Song.all
-    @songs = Song.where("dj_id=?", params[:dj_id])
+    # @songs = Song.where("dj_id=?", params[:dj_id])
+    if params[:search].present?
+      @djs = Song.perform_search(params[:search])
+    else
+      @songs = Song.all
+    end
   end
 
   # GET /songs/1

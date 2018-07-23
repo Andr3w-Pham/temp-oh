@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_dj, only: [:new, :create, :edit, :show, :update, :destroy, :index]
   before_action :check_dj_presence, only: [:new, :create]
+  before_action :only_host_can_edit_review, only: [:edit, :update, :destroy]
 
   # GET /reviews
   # GET /reviews.json
@@ -81,8 +82,15 @@ class ReviewsController < ApplicationController
 
     def check_dj_presence
       if current_user.dj
-        flash[:notice] = "DJ user detected, only host can review"
+        flash[:notice] = "DJ user detected, only host can make reviews"
         redirect_to djs_path
+      end
+    end
+
+    def only_host_can_edit_review
+      if @host.user_id != current_user.id
+        flash[:notice] = "You are only allowed to make changes to your own reviews"
+        redirect_to hosts_path
       end
     end
 

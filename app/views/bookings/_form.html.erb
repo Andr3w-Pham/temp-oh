@@ -7,6 +7,8 @@
     <%= f.input :address, placeholder: 'eg. 1 Bay St, Ultimo NSW 2007' %>
     <%= f.input :date %>
     <%= f.input :time, placeholder: 'eg. 7pm -12pm' %>
+    <%= f.hidden_field :latitude %>
+    <%= f.hidden_field :longitude %>
   </div>
   <div class="form-actions">
     <%= f.button :submit %>

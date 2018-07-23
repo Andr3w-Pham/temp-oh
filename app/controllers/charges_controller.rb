@@ -16,7 +16,7 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       customer: customer.id,
       amount: @amount,
-      description: 'Your Receipt',
+      description: 'Your Booking',
       receipt_email: 'test@gmail.com',
       currency: 'AUD'
     )

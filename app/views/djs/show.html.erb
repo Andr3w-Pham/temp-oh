@@ -10,8 +10,6 @@
             <li class="list-group-item">Email: <%= @dj.user.email %></li>
             <li class="list-group-item">Location: <%= @dj.location %></li>
             <li class="list-group-item">Rate: $<%= @dj.rate %>/hour</li>
-            <li class="list-group-item">Demo:<br>
-              <br>
 
             <li class="list-group-item"><%= link_to 'Back', djs_path %></li>
             <li class="list-group-item"><%= link_to 'Book',  new_dj_booking_path(@dj), method: :get %></li>
