@@ -1,13 +1,12 @@
-<div class="card mx-auto" style="width: 18rem;">
+<div class="card mx-auto" style="width: 25rem;">
   <div class="card-body">
-    <h5 class="card-title text-center">Review</h5>
-
-    <p class="card-text text-center">Rating: <%= @review.rating %></p>
-    <p class="card-text text-center">Reviewed by: <%= @review.host.name %></p>
-    <p class="card-text text-center">Comment: <%= @review.comment %></p>
-    <p class="card-text text-center">Review for: <%= @review.dj.name %></p>
-    <br>
-    <br>
-    <%= link_to 'Back', dj_reviews_path,class:"card-link btn btn-warning" %>
+    <ul class="list-group list-group-flush text-center">
+      <h3 id="dj-card-header" class="card-header">Review</h3>
+        <ul class="list-group-item">Rating: <%= @review.rating %></ul>
+        <ul class="list-group-item">Reviewed by: <%= @review.host.name %></ul>
+        <ul class="list-group-item">Comment: <%= @review.comment %></ul>
+        <ul class="list-group-item">Review for: <%= @review.dj.name %></ul>
+      <%= link_to 'Back', dj_reviews_path,class:"list-group-item" %>
+    </ul>
   </div>
 </div>

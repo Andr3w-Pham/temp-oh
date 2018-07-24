@@ -1,13 +1,13 @@
-<div class="container col-md-6 mx-auto">
-  <div class="card">
-    <div id="dj-card-body" class="card-body">
-      <h1 id="dj-card-header" class="card-header"><%= @host.name %></h1>
-      <%=  image_tag(@host.image_url, class:"card-img-top") %>
-      <div id="dj-card-text" class="card-text">
+<div class="container">
+  <div class="card mx-auto text-center">
+    <div class="card-body mx-auto">
+      <h1 class="card-header"><%= @host.name %></h1>
+      <br>
+      <%=  image_tag(@host.image_url, class:"card-img-top mx-auto") %>
+      <div class="card-text">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Email: <%= @host.user.email %></li>
           <li class="list-group-item">Location: <%= @host.location %></li>
-          <li class="list-group-item"><%= link_to 'Edit', edit_host_path(@host) %></li>
           <li class="list-group-item"><%= link_to 'Back', hosts_path %></li>
         </ul>
       </div>

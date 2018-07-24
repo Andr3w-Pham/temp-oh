@@ -1,11 +1,9 @@
 <h1>Reviews</h1>
 
-<table class="table">
+<table class="table text-center">
   <thead>
     <tr>
       <th>Rating</th>
-      <th>Reviewed by</th>
-      <th>Review for</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +12,6 @@
     <% @reviews.each do |review| %>
       <tr>
         <td><%= review.rating %></td>
-        <td><%= review.host.name %></td>
-        <td><%= review.dj.name %></td>
         <td><%= link_to 'Show', dj_review_path(@dj,review) %></td>
         <td><%= link_to 'Edit', edit_dj_review_path(@dj,review) %></td>
         <td><%= link_to 'Destroy', dj_review_path(@dj,review), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,5 +23,5 @@
 <br>
 
 <%= link_to 'New Review', new_dj_review_path %>
-<br>
+<br><br>
 <%= link_to 'Back', djs_path %>

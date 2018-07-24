@@ -16,6 +16,7 @@
                 <%= link_to 'My Uploads',  dj_songs_path(dj), class:"list-group-item" %>
                 <%= link_to 'Upload',  new_dj_song_path(dj), class:"list-group-item" %>
                 <%= link_to 'Bookings',  dj_bookings_path(dj),  class:"list-group-item" %>
+                <%= link_to 'Reviews', dj_reviews_path(dj), class:"list-group-item" %>
                 <%= link_to 'Edit', edit_dj_path(dj), class:"list-group-item"  %>
                 <%= link_to 'Destroy', dj, method: :delete, data: { confirm: 'Are you sure?' }, class:"list-group-item" %>
               <% else %>
