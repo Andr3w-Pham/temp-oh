@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_dj, only: [:new, :create, :edit, :show, :update, :destroy, :index]
-  before_action :check_dj_presence, only: [:new, :create]
+  before_action :check_dj_presence, only: [:new, :create, :edit, :update, :destroy]
   before_action :only_host_can_edit_review, only: [:edit, :update, :destroy]
 
   # GET /reviews
