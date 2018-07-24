@@ -124,7 +124,8 @@ I deployed my app on [heroku](https://www.heroku.com/) early on and I tried to d
 ### Notes on future development / project improvements
 * Improve the styling of Temp-Oh
 * Make it more responsive
-* Improve the backend
+* Improve backend
+
 
 ## Contributing
 >Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
