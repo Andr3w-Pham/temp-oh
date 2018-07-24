@@ -22,6 +22,7 @@
                   <li class="card-body">
                     <%= song.title %>
                     <br>
+                    <%=  image_tag(song.image_url, class:"card-img-top") %>
                     <%= audio_tag song.audio_url,:autoplay=>false,:controls => true unless song.audio.blank? %>
                     <br>
                     By: <%= song.dj.name %>
