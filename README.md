@@ -35,7 +35,7 @@ Our focus is to enable new DJs to promote their music and also provide them a pl
 # Markdown Guide
 **Resources:**
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-* [Markdown Previwer](https://dillinger.io/)
+* [Markdown Previewer](https://dillinger.io/)
 
 
 ### Issue & Solution

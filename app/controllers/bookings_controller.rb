@@ -10,10 +10,6 @@ class BookingsController < ApplicationController
     @bookings = Booking.where("dj_id=?", params[:dj_id])
   end
 
-  def my_bookings
-    @bookings = Booking.where("dj_id=?", params[:dj_id])
-  end
-
   # GET /bookings/1
   # GET /bookings/1.json
   def show
@@ -21,7 +17,14 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
-    @booking = Booking.new
+    # @booking = Booking.new
+    # Quick fix, for booking spam.
+    if Booking.where("host_id = ? AND dj_id = ?", current_user.host.id, @dj.id).exists?
+        redirect_to djs_path
+        flash[:notice] = "You already have a booking for this DJ!"
+    else
+        @booking = Booking.new
+    end
   end
 
   # GET /bookings/1/edit
