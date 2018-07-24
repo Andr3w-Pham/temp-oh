@@ -4,8 +4,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Dj</th>
-      <th>Host</th>
+      <!-- <th>Dj</th> -->
+      <th>Booked By</th>
       <th>Date</th>
       <th>Time</th>
       <th colspan="3"></th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.dj.name %></td>
+        <!-- <td><%= booking.dj.name %></td> -->
         <td><%= booking.host.name %></td>
         <td><%= booking.date.strftime("%A, %d %B %Y") %></td>
         <td><%= booking.time %></td>
@@ -28,7 +28,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= link_to 'Back', djs_path %> 
 <br>
 
 <!-- <%= link_to 'New Booking', new_dj_booking_path %> -->

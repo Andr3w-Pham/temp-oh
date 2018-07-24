@@ -1,19 +1,16 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <div id="dj-card-body" class="card-body">
-        <h1 id="dj-card-header" class="card-header"><%= @dj.name %></h1>
-        <%=  image_tag(@dj.image_url, class:"card-img-top") %>
-        <div id="dj-card-text" class="card-text">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Description: <%= @dj.description %></li>
-            <li class="list-group-item">Email: <%= @dj.user.email %></li>
-            <li class="list-group-item">Location: <%= @dj.location %></li>
-            <li class="list-group-item">Rate: $<%= @dj.rate %>/hour</li>
-            <li class="list-group-item"><%= link_to 'Back', djs_path %></li>
-          </ul>
-        </div>
-      </div>
+<div class="col-md-6 mx-auto">
+  <div id="dj-card-body" class="card-body">
+    <h1 id="dj-card-header" class="card-header"><%= @dj.name %></h1>
+    <br>
+    <%=  image_tag(@dj.image_url, class:"card-img-top") %>
+    <div id="dj-card-text" class="card-text">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Description: <%= @dj.description %></li>
+        <li class="list-group-item">Email: <%= @dj.user.email %></li>
+        <li class="list-group-item">Location: <%= @dj.location %></li>
+        <li class="list-group-item">Rate: $<%= @dj.rate %>/hour</li>
+        <li class="list-group-item"><%= link_to 'Back', djs_path %></li>
+      </ul>
     </div>
   </div>
 </div>

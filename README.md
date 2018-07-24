@@ -1,22 +1,36 @@
-# README for Temp-Oh (Two Sided Marketplace)
+# README for [Temp-Oh](https://temp-oh.herokuapp.com/)
+>Tempoh is a two sided marketplace for hosts and aspiring DJs.
+Our focus is to enable new DJs to promote their music and also provide them a platform to receive bookings from hosts for various events.
+# Temp-Oh ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+## [Temp-Oh Repo Link](https://github.com/Andr3w-Pham/temp-oh)
+
+## Installation
+
+### To install Temp-Oh
+
+`$ git clone https://github.com/Andr3w-Pham/temp-oh.git`
+
+`$ cd temp-oh`
+
+`$ bundle install`
+
+`$ rake db:create`(Postgresql Database)
+
+`$ rake db:migrate`
+
+### Requirements
+
+* Ruby 2.4.1
+* Rails 5.2.0
+* Postgresql
 
 ### Project Management
 * Before tackling any project it's best to plan everything out first. For this project I used [Trello](https://trello.com/) to to track my progress.
 
-* I also made a spreadsheet to estimate required time for each task.
-
-### Documentation
-* Link to deployed website
-* Issue & Solution
-* User stories
-* Workflow diagram
-* Style guide
-* Wireframes
-* ERD
-* Notes on future development / project improvements
-
-# Link to my app on heroku
-* [Temp-Oh](https://temp-oh.herokuapp.com/)
+> Temp-Oh Trello
+![alt text](https://i.imgur.com/oHJFyJd.png)
+> I also made a spreadsheet to estimate required time for each task.
+![alt text](https://i.imgur.com/xUX5UIj.png)
 
 # Markdown Guide
 **Resources:**
@@ -46,22 +60,17 @@ As a DJ I want hosts(customers) to be able to browse my profile, so I can get bo
 * I'm able to see all of the reviews about myself
 * When someone presses 'Book', I will be able to check it in my bookings list
 
-**Resources:**
-
 ### Workflow Diagram
-Add Here
-
-### Style Guide
-I will refer to Google's [Material Design Colour Scheme.](https://material.io/guidelines/style/color.html#color-color-palette)
-
+![alt text](https://i.imgur.com/hQaOiM4.png)
 ###  Wireframes
-Add Here
+![alt text](https://i.imgur.com/MlANfAK.png)
+![alt text](https://i.imgur.com/iuk3jj4.png)
+![alt text](https://i.imgur.com/1PwMjbA.png)
+![alt text](https://i.imgur.com/YE5RodH.png)
+![alt text](https://i.imgur.com/wLQYday.png)
 
 ### Entity Relationship Diagram (ERD)
-Add Here
-
-**Resources:**
-* [DB Designer](https://dbdesigner.net/)
+![alt text](https://i.imgur.com/VyA6pqi.png)
 
 ## Implementation
 
@@ -111,3 +120,12 @@ I deployed my app on [heroku](https://www.heroku.com/) early on and I tried to d
 **Resources:**
 * [Bootstrap 4 Gem](https://github.com/twbs/bootstrap-rubygem)
 * [Bootstrap 4 Documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
+
+### Notes on future development / project improvements
+* Improve the styling of Temp-Oh
+* Make it more responsive
+* Improve the backend
+
+## Contributing
+>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Please make sure to update tests as appropriate.

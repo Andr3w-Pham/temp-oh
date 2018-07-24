@@ -10,7 +10,7 @@ class DjsController < ApplicationController
     if params[:search].present?
       @djs = Dj.perform_search(params[:search])
     else
-      @djs =Dj.all
+      @djs = Dj.all
     end
   end
 
@@ -99,6 +99,6 @@ class DjsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dj_params
-      params.require(:dj).permit(:name, :description, :location, :portfolio, :rate, :image, :audio, :user_id)
+      params.require(:dj).permit(:name, :description, :location, :rate, :image, :user_id)
     end
 end

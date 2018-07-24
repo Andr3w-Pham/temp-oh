@@ -3,7 +3,8 @@
   <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
     Listen to Demos
   </button>
-  <br><br>
+  <br>
+  <br>
   <!-- The Modal -->
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
@@ -18,18 +19,16 @@
           <% @songs.each do |song| %>
             <div class="text-center">
               <ul class="list-unstyled">
-                <div class="card">
-                  <li class="card-body">
-                    <%= song.title %>
-                    <br>
-                    <%=  image_tag(song.image_url, class:"card-img-top") %>
-                    <%= audio_tag song.audio_url,:autoplay=>false,:controls => true unless song.audio.blank? %>
-                    <br>
-                    By: <%= song.dj.name %>
-                    <br>
-                    <br>
-                  </li>
-                </div>
+                <li class="card-body">
+                  <%= song.title %>
+                  <br>
+                  <%=  image_tag(song.image_url, class:"card-img-top") %>
+                  <%= audio_tag song.audio_url,:autoplay=>false,:controls => true unless song.audio.blank? %>
+                  <br>
+                  By: <%= song.dj.name %>
+                  <br>
+                  <br>
+                </li>
               </ul>
             </div>
           <% end %>

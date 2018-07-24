@@ -18,7 +18,12 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    if Review.where("host_id = ? AND dj_id = ?", current_user.host.id, @dj.id).exists?
+        redirect_to djs_path
+        flash[:notice] = "You're only allowed to review once"
+    else
+        @review = Review.new
+    end
   end
 
   # GET /reviews/1/edit
@@ -34,6 +39,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.host_id = current_user.host.id
     @review.dj_id = @dj.id
+
 
     respond_to do |format|
       if @review.save
@@ -88,16 +94,14 @@ class ReviewsController < ApplicationController
     end
 
     def only_host_can_edit_review
-      if @host.user_id != current_user.id
+      if @review.host_id != current_user.host.id
         flash[:notice] = "You are only allowed to make changes to your own reviews"
-        redirect_to hosts_path
+        redirect_to dj_reviews_path(@dj)
       end
     end
 
-
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:rating, :comment, :host_id, :dj_id)
+      params.require(:review).permit(:rating, :comment)
     end
 end

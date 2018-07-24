@@ -8,7 +8,6 @@ class HostsController < ApplicationController
   # GET /hosts.json
   def index
     @hosts = Host.all
-    # @hosts = Host.text_search(params[:query])
   end
 
   # GET /hosts/1

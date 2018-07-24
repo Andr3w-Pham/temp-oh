@@ -1,6 +1,6 @@
 class Dj < ApplicationRecord
   include PgSearch
-  multisearchable :against => [:dj, :rate, :location ]
+  multisearchable :against => [:name, :rate, :location ]
 
   validates :name, presence: true
   validates :description, presence: true
