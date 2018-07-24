@@ -1,23 +1,26 @@
 <% @songs.each_slice(3) do |songs| %>
   <div class="row">
     <% songs.each do |song| %>
-      <div id="dj-row" class="col-md-4">
-        <div class="text-center">
-          <ul class="list-unstyled">
-            <div class="card">
-              <li class="card-body">
-                <h3><%= song.title %></h3>
-                <%=  image_tag(song.image_url, class:"card-img-top") %>
-                <br><br>
-                <%= link_to 'Show', dj_song_path(@dj,song), class:"btn btn-primary" %>
-                <%= link_to 'Back', djs_path(@dj,song), class:"btn btn-primary" %>
-                <% if @dj.user == current_user %>
-                  <%= link_to 'Edit', edit_dj_song_path(@dj,song), class:"btn btn-primary" %>
-                  <%= link_to 'Destroy', dj_song_path(@dj,song), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
-                <% end %>
-              </li>
+      <div class="col-md-4">
+        <div class="item">
+          <div class="card">
+          <h3 class="card-header"><%= song.title %></h3>
+          <br>
+            <div class="card-img">
+              <%= link_to image_tag(song.image_url, class:"card-img-top"),dj_song_path(@dj,song) %>
             </div>
-          </ul>
+            <div class="card-body">
+            </div>
+            <ul class="list-group list-group-flush text-center">
+              <% if @dj.user == current_user %>
+                <%= link_to 'Edit', edit_dj_song_path(@dj,song), class:"list-group-item" %>
+                <%= link_to 'Back', djs_path(@dj,song), class:"list-group-item" %>
+                <%= link_to 'Destroy', dj_song_path(@dj,song), method: :delete, data: { confirm: 'Are you sure?' }, class:"list-group-item" %>
+              <% else %>
+              <%= link_to 'Back', djs_path(@dj,song), class:"list-group-item" %>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
     <% end %>

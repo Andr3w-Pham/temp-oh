@@ -13,6 +13,7 @@
             </div>
             <ul class="list-group list-group-flush text-center">
               <% if dj.user == current_user %>
+                <%= link_to 'My Uploads',  dj_songs_path(dj), class:"list-group-item" %>
                 <%= link_to 'Upload',  new_dj_song_path(dj), class:"list-group-item" %>
                 <%= link_to 'Bookings',  dj_bookings_path(dj),  class:"list-group-item" %>
                 <%= link_to 'Edit', edit_dj_path(dj), class:"list-group-item"  %>

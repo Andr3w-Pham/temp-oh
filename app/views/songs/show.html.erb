@@ -10,8 +10,12 @@
             <li class="list-group-item">Genre: <%= @song.genre %></li>
             <li class="list-group-item">Description: <%= @song.description %></li>
           <li class="list-group-item"><%= audio_tag @song.audio_url,:autoplay=>false,:controls => true unless @song.audio.blank? %></li>
+          <% if @dj.user == current_user %>
             <li class="list-group-item"><%= link_to 'Edit', edit_dj_song_path(@dj) %></li>
             <li class="list-group-item"><%= link_to 'Back', dj_songs_path(@dj) %></li>
+          <% else %>
+            <li class="list-group-item"><%= link_to 'Back', dj_songs_path(@dj) %></li>
+          <% end %>
           </ul>
         </div>
       </div>

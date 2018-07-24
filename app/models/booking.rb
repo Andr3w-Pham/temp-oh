@@ -6,5 +6,4 @@ class Booking < ApplicationRecord
   validates :time, presence: true
   geocoded_by :address
   after_validation :geocode  # auto-fetch coordinates
-  # TIME = %w{ 1 2 3 4 5 6 7 8 9 10 11 12 }
 end
