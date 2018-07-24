@@ -1,4 +1,4 @@
-# README for Temp-Oh. (Two Sided Marketplace)
+# README for Temp-Oh (Two Sided Marketplace)
 
 ### Project Management
 * Before tackling any project it's best to plan everything out first. For this project I used [Trello](https://trello.com/) to to track my progress.
