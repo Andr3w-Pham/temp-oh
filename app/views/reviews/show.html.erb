@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @review.description %>
+  <strong>Rating:</strong>
+  <%= @review.rating %>
 </p>
 
 <p>
-  <strong>Host:</strong>
-  <%= @review.host %>
+  <strong>Reviewed by:</strong>
+  <%= @review.host.name %>
 </p>
 
 <p>
-  <strong>Dj:</strong>
-  <%= @review.dj %>
+  <strong>Comment:</strong>
+  <%= @review.comment %>
 </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<p>
+  <strong>Review for:</strong>
+  <%= @review.dj.name %>
+</p>
+
+<%= link_to 'Edit', edit_dj_review_path(@review) %> |
+<%= link_to 'Back', dj_reviews_path %>

@@ -1,0 +1,36 @@
+<%= form_tag charges_path do %>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 mx-auto">
+                <div id="dj-card-body" class="card-body">
+                  <h1 id="dj-card-header" class="card-header"><%= @dj.name %></h1>
+                  <%=  image_tag(@dj.image_url, class:"card-img-top") %>
+                  <div id="dj1-card-text" class="card-text">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Description: <%= @dj.description %></li>
+                      <li class="list-group-item">Email: <%= @dj.user.email %></li>
+                      <li class="list-group-item">Rate: $<%= @dj.rate %>/hour</li>
+                      <li class="list-group-item"><%= link_to 'Cancel', djs_path,class:"btn btn-danger" %></li>
+                    <li class="list-group-item"><script
+                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="<%= Rails.application.credentials.stripe[:stripe_publishable_key] %>"
+                        data-amount="<%= (@dj.rate) * 100 %>"
+                        data-name="Temp-Oh"
+                        data-description="Check Out"
+                        data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUdH2c5YiqpixbjFEWNOyKxS8Ev2Hw-xHELVWqDiGbeBcUS_9x"
+                        data-locale="auto"
+                        data-currency="aud"></script></li>
+                    </ul>
+
+                      <%= hidden_field_tag :rate, @dj.rate %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<% end %>

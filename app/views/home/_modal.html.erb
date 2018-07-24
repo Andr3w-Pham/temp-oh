@@ -1,0 +1,43 @@
+<div class="container text-center">
+  <!-- Button to Open the Modal -->
+  <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Listen to Demos
+  </button>
+  <br>
+  <br>
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">List of all Demos</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <% @songs.each do |song| %>
+            <div class="text-center">
+              <ul class="list-unstyled">
+                <li class="card-body">
+                  <%= song.title %>
+                  <br>
+                  <%=  image_tag(song.image_url, class:"card-img-top") %>
+                  <%= audio_tag song.audio_url,:autoplay=>false,:controls => true unless song.audio.blank? %>
+                  <br>
+                  By: <%= song.dj.name %>
+                  <br>
+                  <br>
+                </li>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

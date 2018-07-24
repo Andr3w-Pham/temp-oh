@@ -21,6 +21,11 @@ gem 'carrierwave', '~> 1.0'
 gem "fog-aws"
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'omniauth-google-oauth2'
+gem 'stripe'
+gem 'pg_search'
+gem 'geocoder'
+# gem 'jquery-ui-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -48,6 +53,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "better_errors"
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

@@ -1,1 +1,101 @@
 @import "bootstrap";
+/*========================================================================
+                            Media Queries
+========================================================================== */
+/*========================================================================
+                            Default
+========================================================================== */
+
+/*========================================================================
+                            HOME
+========================================================================== */
+#home-cover {
+  background-image: url(https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98bfb6da87072431cb1d54750bf2e638&auto=format&fit=crop&w=1350&q=80);
+  background-repeat:no-repeat;
+  background-position: center;
+  max-width: 100%;
+  height: auto;
+  min-height: 600px;
+}
+/*========================================================================
+                            Profile Image Style
+========================================================================== */
+.item {
+  margin: auto;
+}
+.card-img-top {
+  text-align: center;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  margin-bottom: 5%;
+  object-fit: cover;
+  object-position: center;
+
+}
+
+.card-title {
+  padding-top: 10%;
+}
+
+.card-img {
+  text-align: center;
+}
+/*========================================================================
+                            Style
+========================================================================== */
+a {
+  color: #222;
+}
+
+a:hover {
+  color: #222;
+}
+
+// #test{
+//   color: black;
+//   background-color: green;
+//   border-color: green;
+//
+// }
+//
+// #test:hover {
+//   color: black;
+//   background-color: yellow;
+//   border-color: green;
+// }
+
+
+
+#djimage {
+  text-align: center;
+  border-radius: 30px;
+}
+
+#hostimage {
+  text-align: center;
+  border-radius: 30px;
+}
+
+.card {
+  width: 300px;
+  margin: 10px;
+}
+
+#dj-card-body {
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+#dj-card-header {
+  text-align: center;
+  color: white;
+  background-color: #142145;
+}
+
+#dj-card-title {
+}
+
+#host-card-body {
+  text-align: center;
+}

@@ -1,0 +1,35 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/"> <img class="logo" src="" height="40">Temp-Oh</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar1">
+    <ul class="navbar-nav mx-auto">
+      <!-- Search Bar For DJs  -->
+      <div class="dj_search form-group">
+        <%= form_tag(djs_path, method: "get") do %>
+          <%= text_field_tag :search, nil, placeholder: "Search", class: "form-control" %>
+          <%= submit_tag "", style: "display: none;" %>
+        <% end %>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+          <%= link_to 'Home', root_path %>
+          <br>
+          <%= link_to 'DJ List', djs_path %>
+        </div>
+      </div>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <!-- <a class="btn ml-2 btn-warning" href="">Test</a></li> -->
+          <%= link_to 'My Account', edit_user_registration_path, class:"btn ml-2 btn-primary"  %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"btn ml-2 btn-warning" %>
+        <% else %>
+          <%= link_to 'Log In', new_user_session_path,class:"btn ml-2 btn-success" %>
+          <%= link_to 'Sign Up', new_user_registration_path,class:"btn ml-2 btn-warning" %>
+        <% end %>
+      </li>
+    </div>
+  </nav>

@@ -1,20 +1,14 @@
-
 <%= simple_form_for(@dj) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :location %>
-    <%= f.input :portfolio %>
-    <%= f.input :rate %>
-    <%= f.input :image %>
-    <%= f.input :dj_check %>
-    <%= f.association :user %>
+    <%= f.input :name, placeholder: 'Your DJ name or actual name' %>
+    <%= f.input :description, placeholder: 'eg. Past experiences, music genre, etc' %>
+    <%= f.input :location, placeholder: 'eg. Sydney, Australia' %>
+    <%= f.input :rate, placeholder: 'Amount you charge per hour' %>
+    <%= f.input :image, as: :file %>
   </div>
-
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"btn btn-primary" %>
   </div>
 <% end %>

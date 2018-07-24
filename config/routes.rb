@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  resources :reviews
-  resources :bookings
-  resources :djs
+  get "home/profile"
+  get "bookings/my_bookings"
+  resources :djs do
+    resources :bookings
+    resources :reviews
+    resources :songs
+  end
   resources :hosts
-  devise_for :users
+  resources :charges, only: [:new, :create]
   root 'home#index'
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "registrations" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
